@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="www.thymeleaf.org" th:replace="(~{base::Layout(~{::section})})">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>This Is A Home Page</title>
+	
+</head>
+
+<body>
+	<section class="banner d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<h1> Contact Manager</h1>
+			<p>You can store your contact easily and in an efficient manner </p>
+
+			<a th:href="@{/signup}">
+				<button class="button">Get Started</button>
+			</a>
+
+		</div>
+	</section>
+
+</body>
+
+</html>

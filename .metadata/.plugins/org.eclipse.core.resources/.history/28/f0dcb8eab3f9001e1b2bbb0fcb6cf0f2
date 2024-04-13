@@ -1,0 +1,26 @@
+package com.contact;
+
+import java.util.Properties;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class EmailService {
+
+	public boolean sendEmail(String subject, String message, String to) {
+		
+		boolean f= false;
+		String from = "Contactmanager@gmail.com";
+		
+		String host="smtp.gmail.com";
+		
+		Properties properties = System.getProperties();
+		
+		properties.put("mail.smtp.host", host);
+		properties.put("mail.smtp.port", "465");
+		properties.put("mail.smtp.ssl.enable", "true");
+		properties.put("mail.smtp.auth", "true");
+
+		
+	}
+}

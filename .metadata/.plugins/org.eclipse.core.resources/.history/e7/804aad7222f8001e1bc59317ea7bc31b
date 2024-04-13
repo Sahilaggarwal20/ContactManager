@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="www.thymeleaf.org" th:replace="Normal/base::Layout(~{::div})">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Show Contacts</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+</head>
+
+<body>
+	<div class="card">
+		<div class="card-body">
+
+			<h1 class="text-center">Your Contacts</h1>
+			<!-- Search -->
+			<div class="search-container my-4">
+				<input  id="search-input" type="text" class="form-control" placeholder="Search Your Contact" />
+				<div class="search-result">
+
+					<!-- result comes here -->
+
+				</div>
+
+			</div>
+
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">#ID</th>
+						<th scope="col">Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Phone</th>
+						<th scope="col">Action</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c:${contacts}">
+						<th scope="row" th:text="${'SCMUSER'+c.cid}">1</th>
+						<td><img src="" class="myprofle" style="margin-right: 5px;"
+								th:src="@{'/image/' + ${c.Imageurl} }" alt="Profile photo  " /><span
+								style="margin-right: 5px;" th:text="${c.name}"> </span></td>
+						<td th:text="${c.Email}">Otto</td>
+						<td th:text="${c.Phone}">@mdo</td>
+						<td>
+							<button class="btn btn-link">
+								<a href="#" th:href="@{'/user/'+${c.cid}+'/contact'}">View</a>
+							</button>
+							<form method="post" th:action="@{'/user/updatecontact/'+${c.cid}}" class="mt-1">
+								<button type="submit" class="btn btn-primary btn-sm">Update</button>
+							</form>
+
+							<a th:href="@{'/user/delete/'+${c.cid}}" class="btn btn-danger btn-sm mt-1">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- pagination -->
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<li th:if="${currentPage != 0}" class="page-item"><a class="page-link"
+							th:href="@{'/user/showContact/'+${currentPage-1}}" href="#">Previous</a></li>
+					<li th:classappend="${currentPage==i-1?'active':''}" th:each="i:${#numbers.sequence(1,totalPages)}"
+						class="page-item"><a th:href="@{'/user/showContact/'+${i-1}}" class="page-link" href="#"><span
+								th:text="${i}"></span></a></li>
+					<li th:if="${currentPage+1 != totalPages}" class="page-item"><a class="page-link"
+							th:href="@{'/user/showContact/'+${currentPage+1}}" href="#">Next</a></li>
+				</ul>
+			</nav>
+
+			<!-- 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dtBasicExample').DataTable({
+            "ordering": true,
+            "columnDefs": [{
+                "type": "num",
+                "targets": 0
+            }]
+        });
+    });
+</script>
+-->
+<script>
+	
+	
+const search=()=>{
+	console.log("searching");
+}
+</script>
+		</div>
+	</div>
+</body>
+
+</html>

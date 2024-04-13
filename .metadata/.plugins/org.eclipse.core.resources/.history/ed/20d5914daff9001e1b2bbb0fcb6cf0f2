@@ -1,0 +1,15 @@
+package com.contact.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ForgotController {
+
+	//email from open handler
+	@RequestMapping("/forgot")
+	public String openemail() {
+		
+		return "forget_email_form";
+	}
+}

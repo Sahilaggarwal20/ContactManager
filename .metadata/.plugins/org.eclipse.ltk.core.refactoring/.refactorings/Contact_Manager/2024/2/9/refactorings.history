@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Contact_Manager/src/main/resources/templates/Normal/add contact.html&apos; to &apos;add_contact.html&apos;" description="Rename resource &apos;add contact.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/Normal/add contact.html" name="add_contact.html" stamp="1709026066216" updateReferences="true"/>
+</session>
